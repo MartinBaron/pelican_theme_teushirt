@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} | {{ SITENAME }}{% endblock title %}
+{% block content %}
+<section id="content" class="body">
+
+	<div class="entry-content">
+	  {{ page.content }}
+	</div>
+
+
+</section>
+
+
+
+        <footer id="contentinfo" class="body">
+        <div id="page-size">Taille de la page : {{page.size}}
+        </footer><!-- /#contentinfo -->
+
+
+{% endblock %}
+

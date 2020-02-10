@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block title %}{{ category }} | {{ SITENAME }}{% endblock title %}
+{% block body_class %}
+<body class="category-page">
+{% endblock body_class %}
+
+{% block content %}
+<section id="content" >
+
+<ul class="cols">
+{% for article in articles %}
+        <li>
+            {% if article.featured_image %}
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+            <!-- <div class="featured-img" style="background-image: url('{{ SITEURL }}/{{ article.featured_image }}')">
+            </div>-->
+            <img class="featured-img" alt="{{ article.slug }}" src="{{ SITEURL }}/{{ article.featured_image }}">
+            {% endif %}
+            <h2 class="entry-title">.{{ article.slug }}</h2></a>
+
+            <time class="time" datetime="{{ article.date.isoformat() }}">{{ article.date|strftime('%B %Y')}}</time>
+        </li>
+{% endfor %}
+</ul>
+</section><!-- /#content -->
+
+
+
+{% endblock content %}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="{{ DEFAULT_LANG }}">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"> {% block head %}
+  <link rel="stylesheet" href="{{ SITEURL }}/css/style.css" type="text/css" />
+
+  <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+
+   {% if FEED_ALL_ATOM %}
+
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" /> {% endif %} {% if FEED_ALL_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" /> {% endif %} {% if FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" /> {% endif %} {% if FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" /> {% endif %} {% if CATEGORY_FEED_ATOM and category %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" /> {% endif %} {% if CATEGORY_FEED_RSS and category %}
+  <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS|format(category.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" /> {% endif %} {% if TAG_FEED_ATOM and tag %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM|format(tag.slug) }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" /> {% endif %} {% if TAG_FEED_RSS and tag %}
+  <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS|format(tag.slug) }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" /> {% endif %} {% endblock head %}
+</head>
+
+{% block body_class %}
+<body>
+{% endblock body_class %}
+
+<main>
+  <header class="top">
+    <h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>
+    <!-- <div class="subtitle">
+      <a href="{{ SITEURL }}/low-tech.html">{{ Pourquoi ce site peut avoir l'air de dater de 98 ? }} <svg class="icon" viewBox="0 0 500 500"><title>Solar</title><circle class="svg_fill" cx="248.48" cy="252.55" r="97.03"/><rect class="svg_fill" x="234.53" y="17.45" width="27.9" height="112.39"/><rect class="svg_fill" x="234.53" y="375.25" width="27.9" height="112.39"/><rect class="svg_fill" x="413.42" y="196.35" width="27.9" height="112.39" transform="translate(679.92 -174.83) rotate(90)"/><rect class="svg_fill" x="55.63" y="196.35" width="27.9" height="112.39" transform="translate(322.12 182.97) rotate(90)"/><rect class="svg_fill" x="361.03" y="69.85" width="27.9" height="112.39" transform="translate(198.96 -228.23) rotate(45)"/><rect class="svg_fill" x="108.03" y="322.85" width="27.9" height="112.39" transform="translate(303.75 24.77) rotate(45)"/><rect class="svg_fill" x="361.03" y="322.85" width="27.9" height="112.39" transform="translate(908.15 381.93) rotate(135)"/><rect class="svg_fill" x="108.03" y="69.85" width="27.9" height="112.39" transform="translate(297.35 128.93) rotate(135)"/></svg></a>
+    </div> -->
+    <nav id="menu">
+      <div id="menu-s">
+        menu
+      </div>
+      <ul id="menu-list">
+        <li><a href="{{ SITEURL }}/pages/concept.html">C'est quoi ?</a></li>
+        <!-- <li><a class="category" href="{{ SITEURL }}/gallerie.html">Je veux voir !</a></li>-->
+        <li><a href="{{ SITEURL }}/pages/assos.html">On aide qui ?</a></li>
+        <li><a href="{{ SITEURL }}/pages/contact.html">J'en veux un !</a></li>
+        <!-- <li><a href="https://instagram.com">📷</a></li>-->
+      </ul>
+    </nav>
+    <!-- /#menu -->
+  </header>
+  <!-- /#banner -->
+
+  {% block content %} {% endblock %}
+  <footer id="content-info" class="body">
+    <h2>
+    <a href="{{ SITEURL }}/">{{ SITENAME }}</a>
+  </h2>
+    <div class="dashboard">
+      <ul class="cols">
+        <li>
+          <h3>Info</h3>
+          <p><a href="{{ SITEURL }}/privacy.html">Règles de vie privée</a></p>
+        </li>
+        <li>
+          <h3>Contact</h3>
+          <p>
+            &copy; Robin<br>
+          teushirt@tutanota.com</p>
+         
+        </li>
+      </ul>
+    </div>
+  </footer>
+<!-- /#contentinfo -->
+</main>
+
+</body>
+
+</html>
